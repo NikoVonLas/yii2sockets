@@ -107,19 +107,13 @@ ClientManager.prototype.cleanUp = function () {
  */
 ClientManager.prototype.addSocket = function (socket) {
     var self = this;
-    if (this.settings.redis.password) {
-        var redisClient = redis.createClient({host: this.settings.redis.hostname, port: this.settings.redis.port, password: this.settings.redis.password});
-    } else {
-        var redisClient = redis.createClient({host: this.settings.redis.hostname, port: this.settings.redis.port});
-    }
-    
+    var redisClient = redis.createClient(this.settings.redis.port, this.settings.redis.hostname);
 
     socket.handshake.query.userPage = typeof socket.handshake.query.userPage !== "undefined" ? socket.handshake.query.userPage : '/';
 
     self.logger.debug(self.logPrefix + 'addSocket: Client '+socket.id+' connected');
 
     redisClient.on('connect', function() {
-        self.logger.debug(self.logPrefix + 'redis: Connected');
         self.updateClientSocketData(socket, redisClient);
     });
 
@@ -299,7 +293,6 @@ ClientManager.prototype.addUserToChannel = function (uid, channel, autoCreate) {
         this.addChannel(channel);
     }
     for (var sessionId in this.users[uid].sessions) {
-        self.logger.debug(self.logPrefix + 'addUserToChannel: Channel '+channel+' connected');
         this.addSessionToChannel(sessionId, channel);
     }
     return true;

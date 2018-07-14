@@ -43,13 +43,13 @@ server.start = function (conf) {
     app.all('*', routes.send404);
 
     //HTTPS/SSL server
-    if(settings.sslConf.key != "" && settings.sslConf.cert != "") {
+    if(typeof settings.sslConf.key !== "undefined" && typeof settings.sslConf.cert !== "undefined") {
         var sslConf = {
             key: fs.readFileSync(settings.sslConf.key, 'utf-8'),
             cert: fs.readFileSync(settings.sslConf.cert, 'utf-8')
         };
         var sslShParam = settings.sslConf.dhparam;
-        if(typeof sslShParam !== "undefined" && sslShParam != "") {
+        if(typeof sslShParam !== "undefined") {
             sslConf.dhparam = fs.readFileSync(sslShParam, 'utf-8');
         }
         var https = require('https');

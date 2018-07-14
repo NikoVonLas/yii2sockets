@@ -11,19 +11,9 @@
     "sessionKeyPrefix": "<?= $nodeSockets->sessionKeyPrefix ?>",
     "redis": {
         "hostname": "<?= $redis->hostname ?>",
-        "port": <?= $redis->port ?>,
-        <?php if(!empty($redis->password)) { ?>
-        "password": <?= $redis->password ?>
-        <?php } ?>
+        "port": <?= $redis->port ?>
     },
     "serviceKey": "<?= $nodeSockets->serviceKey ?>",
-    <?php if(empty($nodeSockets->sslConf)) { ?>
-    "sslConf": {
-        "key":"",
-        "cert":""
-    },
-    <?php } else { ?>
     "sslConf": <?= json_encode($nodeSockets->sslConf) ?>,
-    <?php } ?>
     "debug": true
 }
