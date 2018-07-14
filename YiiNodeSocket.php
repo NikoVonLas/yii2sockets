@@ -1,5 +1,5 @@
 <?php
-namespace digitv\yii2sockets;
+namespace nikovonlas\yii2sockets;
 
 use Yii;
 use yii\base\Component;

@@ -1,5 +1,5 @@
 <?php
-namespace digitv\yii2sockets;
+namespace nikovonlas\yii2sockets;
 
 use Yii;
 use yii\base\Component;
@@ -38,6 +38,18 @@ class YiiNodeSocketFrameGrowl extends YiiNodeSocketFrameBasic {
     protected $_time = 5000;
     protected $_allow_dismiss = 1;
 
+    /**
+     * @param array $options
+     * @return $this
+     */
+    public function setOptions($options) {
+        foreach ($options as $option => $value) {
+            $propety = '_' . $option;
+            if (property_exists(self::className(), $propety)) {
+                $this->$propety = $value;
+            }
+        }
+    }
     /**
      * @param string $text
      * @return $this

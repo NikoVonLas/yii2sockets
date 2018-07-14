@@ -1,5 +1,5 @@
 <?php
-namespace digitv\yii2sockets\commands;
+namespace nikovonlas\yii2sockets\commands;
 
 use Yii;
 use yii\console\Controller;

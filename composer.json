@@ -1,7 +1,7 @@
 {
     "name": "nikovonlas/yii2sockets",
-    "version": "1.0.8.3",
-    "description": "Node.js web-sockets support",
+    "version": "1.0.9.0",
+    "description": "Node.js web-sockets support for Yii2",
     "keywords": ["yii2", "node", "nodejs", "web-sockets"],
     "type": "yii2-extension",
     "license": "MIT",
@@ -29,7 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "digitv\\yii2sockets\\": ""
+            "nikovonlas\\yii2sockets\\": ""
         }
     },
     "extra": {

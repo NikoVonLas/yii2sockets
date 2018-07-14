@@ -4,7 +4,7 @@
  * (example based on some message class {recipient_id: 1, author_id: 2 ... })
  */
 
-namespace digitv\yii2sockets;
+namespace nikovonlas\yii2sockets;
 
 use backend\modules\chat\models\ChatMessage;
 use Yii;

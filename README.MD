@@ -2,13 +2,13 @@ Node.js server integration module (web-sockets)
 
 **Install with composer**
 ```
-composer require digitv/yii2sockets:1.*
+composer require nikovonlas/yii2sockets:1.*
 ```
 Add console command controller to the config (_controllerMap section_):
 ```
 'controllerMap' => [
     ...
-    'node-sockets' => '\digitv\yii2sockets\commands\YiiNodeSocketsController',
+    'node-sockets' => '\nikovonlas\yii2sockets\commands\YiiNodeSocketsController',
     ...
 ],
 ```
@@ -17,7 +17,7 @@ Add session component to the 'components' section of main config:
 'components' => [
     ...
         'session' => [
-            'class' => 'digitv\yii2sockets\YiiNodeSocketSession',
+            'class' => 'nikovonlas\yii2sockets\YiiNodeSocketSession',
             'keyPrefix' => 'sess_preffix_',
             'timeout' => 600,
         ],
@@ -43,7 +43,7 @@ And add component do those configs (_https not implemented yet_):
 'components' => [
     ...
         'nodeSockets' => [
-            'class' => 'digitv\yii2sockets\YiiNodeSocket',
+            'class' => 'nikovonlas\yii2sockets\YiiNodeSocket',
             'nodeJsHost' => 'localhost',
             'nodeJsPort' => 3001,
             'nodeJsScheme' => 'http',
@@ -113,6 +113,14 @@ Yii::$app->nodeSockets->newMessage()
 Send message to this socket (example is used on AJAX request).
 ```
 Yii::$app->nodeSockets->newNotify()
+    ->setOptions([
+        'allow_dismiss'     => true,
+        'showProgressbar'   => true,
+        'placement'         => [
+            'from'  => 'bottom',
+            'align' => 'right'
+        ]
+    ])
     ->setText('Hello world')
     ->sendToThis();
 ```

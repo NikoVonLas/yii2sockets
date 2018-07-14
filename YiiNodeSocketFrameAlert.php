@@ -6,7 +6,7 @@
  * Time: 11:36
  */
 
-namespace digitv\yii2sockets;
+namespace nikovonlas\yii2sockets;
 
 /**
  * @property boolean $_onlyActiveWindow
