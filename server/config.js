@@ -44,7 +44,14 @@ var conf = convict({
             default: 6379,
             env: "REDIS_PORT",
             arg: "redis-port"
-        }
+        },
+        password: {
+            doc: "Redis server password.",
+            format: String,
+            default: "",
+            env: "REDIS_PASSWORD",
+            arg: "redis-password"
+        },
     },
     serviceKey: {
         doc: "Service key for server",
