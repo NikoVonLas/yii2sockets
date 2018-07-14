@@ -1,6 +1,6 @@
 {
     "name": "nikovonlas/yii2sockets",
-    "version": "1.0.8.1",
+    "version": "1.0.8.3",
     "description": "Node.js web-sockets support",
     "keywords": ["yii2", "node", "nodejs", "web-sockets"],
     "type": "yii2-extension",
