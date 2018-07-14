@@ -1,6 +1,6 @@
 {
     "name": "NikoVonLas/yii2sockets",
-    "version": "1.0.7.0",
+    "version": "1.0.8.0",
     "description": "Node.js web-sockets support",
     "keywords": ["yii2", "node", "nodejs", "web-sockets"],
     "type": "yii2-extension",

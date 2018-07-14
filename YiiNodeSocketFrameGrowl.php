@@ -37,6 +37,12 @@ class YiiNodeSocketFrameGrowl extends YiiNodeSocketFrameBasic {
     protected $_type = self::MESSAGE_TYPE_SUCCESS;
     protected $_time = 5000;
     protected $_allow_dismiss = 1;
+    protected $_show_progressbar = 1;
+    protected $_show_separator = 1;
+    protected $_placement = [
+        'from'  => 'bottom',
+        'align' => 'right'
+    ];
 
     /**
      * @param string $text
@@ -211,16 +217,19 @@ class YiiNodeSocketFrameGrowl extends YiiNodeSocketFrameBasic {
         $options = [];
         $settings = [];
         $optionsMap = [
-            'message' => '_text',
-            'title' => '_title',
-            'icon' => '_icon',
-            'url' => '_url',
-            'target' => '_url_target',
+            'message'   => '_text',
+            'title'     => '_title',
+            'icon'      => '_icon',
+            'url'       => '_url',
+            'target'    => '_url_target',
         ];
         $settingsMap = [
-            'type' => '_type',
-            'delay' => '_time',
-            'allow_dismiss' => '_allow_dismiss',
+            'type'              => '_type',
+            'delay'             => '_time',
+            'allow_dismiss'     => '_allow_dismiss',
+            'showProgressbar'   => '_show_progressbar',
+            'showSeparator'     => '_show_separator',
+            'placement'         => '_placement'
         ];
 
         foreach ($optionsMap as $mapName => $fieldName) {
