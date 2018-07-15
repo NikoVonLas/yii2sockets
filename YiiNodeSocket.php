@@ -286,7 +286,8 @@ class YiiNodeSocket extends Component {
             CURLOPT_POSTFIELDS => http_build_query($data),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => [ 'NodejsServiceKey: ' . $this->serviceKey ],
-            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_SSL_VERIFYHOST => (YII_DEBUG || YII_ENV == 'dev') ? false : true,
+            CURLOPT_SSL_VERIFYPEER => (YII_DEBUG || YII_ENV == 'dev') ? false : true,
         ]);
         $nodeOut = curl_exec($curl);
         //try to decode JSON data
